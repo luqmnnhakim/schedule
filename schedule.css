@@ -13,22 +13,22 @@ body {
 
 /* Container Styling */
 .container {
-    width: 90%;
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1100px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .container:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading Styling */
+/* Header Styling */
 h1 {
     font-size: 32px;
     color: #00796b;
@@ -52,7 +52,7 @@ table {
 
 /* Table Header */
 th, td {
-    padding: 18px;
+    padding: 15px;
     text-align: center;
     font-size: 16px;
 }
@@ -107,9 +107,11 @@ td.study:hover, td.break:hover, td.lunch:hover {
 }
 
 /* Responsive Design - Media Queries */
+
+/* Tablet View */
 @media (max-width: 768px) {
     th, td {
-        padding: 14px;
+        padding: 12px;
         font-size: 14px;
     }
 
@@ -121,67 +123,64 @@ td.study:hover, td.break:hover, td.lunch:hover {
         font-size: 14px;
         table-layout: fixed;
     }
-    
-    th, td {
-        padding: 12px;
-        font-size: 14px;
-    }
 }
 
+/* Mobile View */
 @media (max-width: 600px) {
     h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
-    /* Stack the table columns on small screens */
+    /* Adjusting container padding for smaller devices */
     .container {
-        padding: 20px;
+        padding: 15px;
     }
-    
+
     table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
     }
 
-    /* Flex Layout for Mobile */
     th, td {
         display: block;
         text-align: left;
         padding: 10px;
     }
 
+    /* Flex Layout for Mobile */
     th {
         background-color: #00796b;
         color: #fff;
         font-size: 16px;
         padding: 12px;
+        border: none;
     }
 
     td {
         padding: 10px;
-        border: none;
         border-bottom: 1px solid #ddd;
     }
 
-    /* Flexbox for stacking table rows on mobile */
+    /* Adjust font sizes for better readability on small screens */
+    th, td {
+        font-size: 12px;
+    }
+
+    /* Mobile table design with flexbox to stack rows */
     .timetable tbody tr {
         display: flex;
         flex-direction: column;
         border: none;
     }
-    
+
     .timetable tbody tr td {
         border: none;
     }
 
-    /* Remove hover effects on mobile */
+    /* Removing hover effects for mobile */
     td:hover {
         transform: none;
         box-shadow: none;
-    }
-
-    th, td {
-        font-size: 12px;
     }
 }
