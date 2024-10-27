@@ -125,7 +125,7 @@ td.study:hover, td.break:hover, td.lunch:hover {
     }
 }
 
-/* Mobile View */
+/* Mobile View - Portrait and Vertical Stacking */
 @media (max-width: 600px) {
     h1 {
         font-size: 22px;
@@ -137,48 +137,58 @@ td.study:hover, td.break:hover, td.lunch:hover {
     }
 
     table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+        width: 100%;
+        border: none;
+        background: transparent;
     }
 
     th, td {
         display: block;
-        text-align: left;
         padding: 10px;
+        text-align: left;
+        width: 100%;
+        border: none;
     }
 
-    /* Flex Layout for Mobile */
     th {
         background-color: #00796b;
         color: #fff;
-        font-size: 16px;
         padding: 12px;
+        font-size: 16px;
         border: none;
     }
 
     td {
-        padding: 10px;
         border-bottom: 1px solid #ddd;
+        padding: 10px 5px;
+        margin: 0;
     }
 
-    /* Adjust font sizes for better readability on small screens */
+    /* Vertical stacking for better readability */
+    tbody {
+        display: block;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+
+    tbody tr td {
+        padding: 10px 0;
+        text-align: left;
+        font-size: 14px;
+    }
+
     th, td {
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    /* Mobile table design with flexbox to stack rows */
-    .timetable tbody tr {
-        display: flex;
-        flex-direction: column;
-        border: none;
-    }
-
-    .timetable tbody tr td {
-        border: none;
-    }
-
-    /* Removing hover effects for mobile */
+    /* Remove hover effects for mobile */
     td:hover {
         transform: none;
         box-shadow: none;
