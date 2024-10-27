@@ -125,7 +125,7 @@ td.study:hover, td.break:hover, td.lunch:hover {
     }
 }
 
-/* Mobile View */
+/* Mobile View - Maintain Table Format */
 @media (max-width: 600px) {
     h1 {
         font-size: 22px;
@@ -133,52 +133,36 @@ td.study:hover, td.break:hover, td.lunch:hover {
 
     /* Adjusting container padding for smaller devices */
     .container {
-        padding: 15px;
+        padding: 10px;
     }
 
+    /* Keep the table scrollable horizontally */
     table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        width: 100%;
     }
 
     th, td {
-        display: block;
-        text-align: left;
         padding: 10px;
-    }
-
-    /* Flex Layout for Mobile */
-    th {
-        background-color: #00796b;
-        color: #fff;
-        font-size: 16px;
-        padding: 12px;
-        border: none;
-    }
-
-    td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    /* Adjust font sizes for better readability on small screens */
-    th, td {
+        text-align: center;
         font-size: 12px;
     }
 
-    /* Mobile table design with flexbox to stack rows */
-    .timetable tbody tr {
-        display: flex;
-        flex-direction: column;
-        border: none;
+    th {
+        background-color: #00796b;
+        color: #fff;
+        padding: 10px;
     }
 
-    .timetable tbody tr td {
-        border: none;
+    td {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        margin: 0;
     }
 
-    /* Removing hover effects for mobile */
+    /* Remove hover effects for mobile */
     td:hover {
         transform: none;
         box-shadow: none;
