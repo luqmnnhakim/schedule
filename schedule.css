@@ -14,29 +14,30 @@ body {
 /* Container Styling */
 .container {
     width: 95%;
-    max-width: 1100px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .container:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Header Styling */
 h1 {
-    font-size: 32px;
+    font-size: 36px;
     color: #00796b;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-weight: 700;
     background: linear-gradient(to right, #00796b, #004d40);
     -webkit-background-clip: text;
     color: transparent;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect */
 }
 
 /* Table Styling */
@@ -52,25 +53,27 @@ table {
 
 /* Table Header */
 th, td {
-    padding: 15px;
+    padding: 20px;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+    position: relative;
 }
 
+/* Header Styling */
 th {
     background-color: #00796b;
     color: #fff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 3px solid #004d40;
+    border-bottom: 4px solid #004d40;
 }
 
 /* Table Body Styling */
 td {
     background-color: #ffffff;
     color: #555;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -98,12 +101,13 @@ td.lunch {
 
 /* Hover Effects */
 tbody tr:hover td {
-    background-color: #f1f1f1;
+    background-color: #e0f2f1;
+    transition: background-color 0.3s ease;
 }
 
 td.study:hover, td.break:hover, td.lunch:hover {
-    transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Design - Media Queries */
@@ -111,29 +115,29 @@ td.study:hover, td.break:hover, td.lunch:hover {
 /* Tablet View */
 @media (max-width: 768px) {
     th, td {
-        padding: 12px;
-        font-size: 14px;
+        padding: 15px;
+        font-size: 16px;
     }
 
     h1 {
-        font-size: 26px;
+        font-size: 30px;
     }
 
     table {
         font-size: 14px;
-        table-layout: fixed;
+        table-layout: auto; /* Make the table layout flexible */
     }
 }
 
 /* Mobile View - Maintain Table Format */
 @media (max-width: 600px) {
     h1 {
-        font-size: 22px;
+        font-size: 26px;
     }
 
     /* Adjusting container padding for smaller devices */
     .container {
-        padding: 10px;
+        padding: 15px;
     }
 
     /* Keep the table scrollable horizontally */
@@ -147,24 +151,51 @@ td.study:hover, td.break:hover, td.lunch:hover {
     th, td {
         padding: 10px;
         text-align: center;
-        font-size: 12px;
-    }
-
-    th {
-        background-color: #00796b;
-        color: #fff;
-        padding: 10px;
+        font-size: 14px;
     }
 
     td {
         border-bottom: 1px solid #ddd;
-        padding: 10px;
+        padding: 12px;
         margin: 0;
+    }
+
+    /* Touch-friendly padding */
+    td.study, td.break, td.lunch {
+        padding: 15px; /* Increase padding for touch targets */
     }
 
     /* Remove hover effects for mobile */
     td:hover {
         transform: none;
         box-shadow: none;
+    }
+}
+
+/* Landscape Mobile View */
+@media (max-width: 900px) and (orientation: landscape) {
+    h1 {
+        font-size: 28px;
+    }
+
+    th, td {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 10px;
+    }
+}
+
+/* Keyframes for Fade-in Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
