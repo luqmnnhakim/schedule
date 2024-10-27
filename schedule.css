@@ -125,7 +125,7 @@ td.study:hover, td.break:hover, td.lunch:hover {
     }
 }
 
-/* Mobile View - Keep the table format in portrait mode */
+/* Mobile View - Portrait and Vertical Stacking */
 @media (max-width: 600px) {
     h1 {
         font-size: 22px;
@@ -133,54 +133,62 @@ td.study:hover, td.break:hover, td.lunch:hover {
 
     /* Adjusting container padding for smaller devices */
     .container {
-        padding: 10px;
+        padding: 15px;
     }
 
-    /* Make table scrollable horizontally */
     table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
         width: 100%;
+        border: none;
+        background: transparent;
     }
 
     th, td {
+        display: block;
         padding: 10px;
-        text-align: center;
-        font-size: 12px;
+        text-align: left;
+        width: 100%;
+        border: none;
     }
 
     th {
         background-color: #00796b;
         color: #fff;
-        padding: 10px;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
     }
 
     td {
         border-bottom: 1px solid #ddd;
-        padding: 10px;
+        padding: 10px 5px;
         margin: 0;
     }
 
-    /* Reduce padding and font size to fit more content on small screens */
-    th, td {
-        font-size: 12px;
-    }
-
-    /* Keep table rows inline without stacking */
-    tbody tr {
-        display: inline-block;
-        width: auto;
-    }
-
-    /* Horizontal scrolling */
+    /* Vertical stacking for better readability */
     tbody {
         display: block;
-        overflow-x: auto;
-        white-space: nowrap;
     }
 
-    /* Removing hover effects for mobile */
+    tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+
+    tbody tr td {
+        padding: 10px 0;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    th, td {
+        font-size: 14px;
+    }
+
+    /* Remove hover effects for mobile */
     td:hover {
         transform: none;
         box-shadow: none;
