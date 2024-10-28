@@ -1,20 +1,21 @@
 /* Importing Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap');
 
-/* General Styling */
+/* Global Reset and Box Sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Ensure smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f9e6f7, #fce4ec); /* Soft pink gradient */
+    background: linear-gradient(135deg, #f9e6f7, #fce4ec);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -28,15 +29,14 @@ body {
 /* Container Styling */
 .container {
     width: 100%;
-    max-width: 1000px;
-    background: #fff;
+    max-width: 1200px;
+    background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 40px;
     text-align: center;
     border: 2px solid #ffb6c1;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container:hover {
@@ -47,10 +47,9 @@ body {
 /* Header Styling */
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 42px;
-    color: #ff69b4; /* Hot pink */
+    font-size: 40px;
+    color: #ff69b4;
     margin-bottom: 20px;
-    text-transform: capitalize;
 }
 
 h1::after {
@@ -65,8 +64,8 @@ h1::after {
 
 /* Date Styling */
 .date {
-    font-size: 20px;
-    color: #ba68c8; /* Lavender */
+    font-size: 18px;
+    color: #ba68c8;
     margin-bottom: 30px;
 }
 
@@ -74,23 +73,21 @@ h1::after {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #fffafc;
     border-radius: 15px;
     overflow: hidden;
+    background: #fffafc;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Table Header */
 th, td {
-    padding: 16px;
+    padding: 14px 18px;
     text-align: center;
     font-size: 16px;
-    word-wrap: break-word;
 }
 
 th {
     background-color: #ff9a9e;
-    color: #fff;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -104,13 +101,13 @@ td {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Study, Break, and Lunch Sessions Styling */
+/* Study and Break Styling */
 td.study {
-    background: #ffc1e3; /* Light pink for study */
+    background: #ffc1e3;
 }
 
 td.break {
-    background: #ffebee; /* Soft pink for break */
+    background: #ffebee;
 }
 
 /* Hover Effects */
@@ -143,9 +140,109 @@ td.study:hover::before, td.break:hover::before {
     top: 0;
 }
 
+/* Table Row Hover */
 table tr:hover td {
     background-color: #ffe6ec;
     transition: background-color 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 30px;
+    }
+
+    th, td {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h1::after {
+        width: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h1::after {
+        width: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h1::after {
+        width: 40px;
+    }
+
+    /* Scrollable Table */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Stacked Table for Mobile */
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        display: block;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #ffe4e1;
+    }
+
+    table td {
+        display: block;
+        padding-left: 50%;
+        position: relative;
+        text-align: left;
+        border-bottom: none;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        font-weight: bold;
+        color: #ff69b4;
+    }
+
+    td {
+        cursor: pointer;
+    }
 }
 
 /* Footer Styling */
@@ -156,89 +253,13 @@ footer {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    th, td {
-        padding: 14px;
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 34px;
-    }
-
-    h1::after {
-        width: 50px;
-    }
-}
-
-@media (max-width: 600px) {
-    th, td {
-        padding: 12px;
-        font-size: 12px;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    h1::after {
-        width: 40px;
-    }
-
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    /* Responsive Stacked View for Small Screens */
-    table thead {
-        display: none;
-    }
-
-    table tr {
-        display: block;
-        margin-bottom: 15px;
-        border: 1px solid #ffe4e1;
-        border-radius: 10px;
-        background-color: #fff;
-    }
-
-    table td {
-        display: block;
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-        border-bottom: none;
-    }
-
-    table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        text-align: left;
-        font-weight: bold;
-        color: #ff69b4;
-    }
-
-    td {
-        cursor: pointer;
-    }
-}
-
-/* Accessibility Improvements */
+/* Accessibility Enhancements */
 :focus {
     outline: 3px solid #ff69b4;
     outline-offset: 2px;
 }
 
-/* Improved Hover Interaction */
+/* Smooth Hover Effects */
 button, a, td:hover {
     transition: background-color 0.3s, transform 0.3s;
 }
