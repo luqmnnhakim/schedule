@@ -1,201 +1,244 @@
-/* Body Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #80deea);
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap');
+
+/* General Styling */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f9e6f7, #fce4ec); /* Soft pink gradient */
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    line-height: 1.6;
     color: #333;
 }
 
 /* Container Styling */
 .container {
-    width: 95%;
-    max-width: 1200px;
-    background: #ffffff;
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
     border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 2px solid #ffb6c1;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Header Styling */
 h1 {
-    font-size: 36px;
-    color: #00796b;
+    font-family: 'Dancing Script', cursive;
+    font-size: 42px;
+    color: #ff69b4; /* Hot pink */
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #ff69b4;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+
+/* Date Styling */
+.date {
+    font-size: 20px;
+    color: #ba68c8; /* Lavender */
     margin-bottom: 30px;
-    font-weight: 700;
-    background: linear-gradient(to right, #00796b, #004d40);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: fadeIn 1s ease-in-out; /* Fade-in effect */
 }
 
 /* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    background: #f5f5f5;
-    border-radius: 10px;
+    background: #fffafc;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Table Header */
 th, td {
-    padding: 20px;
+    padding: 16px;
     text-align: center;
-    font-size: 18px;
-    position: relative;
+    font-size: 16px;
+    word-wrap: break-word;
 }
 
-/* Header Styling */
 th {
-    background-color: #00796b;
+    background-color: #ff9a9e;
     color: #fff;
-    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 4px solid #004d40;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
-/* Table Body Styling */
 td {
-    background-color: #ffffff;
-    color: #555;
-    border-bottom: 2px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #ffe4e1;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Study, Break, and Lunch Sessions Styling */
 td.study {
-    background: linear-gradient(135deg, #4fc3f7, #29b6f6);
-    color: #fff;
-    font-weight: 600;
-    border-left: 5px solid #0288d1;
+    background: #ffc1e3; /* Light pink for study */
 }
 
 td.break {
-    background: linear-gradient(135deg, #ff8a65, #ff7043);
-    color: #fff;
-    font-weight: 600;
-    border-left: 5px solid #e64a19;
-}
-
-td.lunch {
-    background: linear-gradient(135deg, #66bb6a, #43a047);
-    color: #fff;
-    font-weight: 600;
-    border-left: 5px solid #388e3c;
+    background: #ffebee; /* Soft pink for break */
 }
 
 /* Hover Effects */
-tbody tr:hover td {
-    background-color: #e0f2f1;
-    transition: background-color 0.3s ease;
-}
-
-td.study:hover, td.break:hover, td.lunch:hover {
+td.study:hover, td.break:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    background-color: #ffccd5;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-/* Responsive Design - Media Queries */
+/* Animations */
+td.study, td.break {
+    position: relative;
+    overflow: hidden;
+}
 
-/* Tablet View */
+td.study::before, td.break::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+td.study:hover::before, td.break:hover::before {
+    top: 0;
+}
+
+table tr:hover td {
+    background-color: #ffe6ec;
+    transition: background-color 0.5s ease;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ba68c8;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
     th, td {
-        padding: 15px;
-        font-size: 16px;
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h1::after {
+        width: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    th, td {
+        padding: 12px;
+        font-size: 12px;
     }
 
     h1 {
         font-size: 30px;
     }
 
-    table {
-        font-size: 14px;
-        table-layout: auto; /* Make the table layout flexible */
-    }
-}
-
-/* Mobile View - Maintain Table Format */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 26px;
+    h1::after {
+        width: 40px;
     }
 
-    /* Adjusting container padding for smaller devices */
-    .container {
-        padding: 15px;
-    }
-
-    /* Keep the table scrollable horizontally */
     table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
-        width: 100%;
     }
 
-    th, td {
-        padding: 10px;
-        text-align: center;
-        font-size: 14px;
+    /* Responsive Stacked View for Small Screens */
+    table thead {
+        display: none;
     }
 
-    td {
-        border-bottom: 1px solid #ddd;
-        padding: 12px;
-        margin: 0;
+    table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ffe4e1;
+        border-radius: 10px;
+        background-color: #fff;
     }
 
-    /* Touch-friendly padding */
-    td.study, td.break, td.lunch {
-        padding: 15px; /* Increase padding for touch targets */
+    table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: none;
     }
 
-    /* Remove hover effects for mobile */
-    td:hover {
-        transform: none;
-        box-shadow: none;
-    }
-}
-
-/* Landscape Mobile View */
-@media (max-width: 900px) and (orientation: landscape) {
-    h1 {
-        font-size: 28px;
-    }
-
-    th, td {
-        padding: 12px;
-        font-size: 14px;
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: #ff69b4;
     }
 
     td {
-        padding: 10px;
+        cursor: pointer;
     }
 }
 
-/* Keyframes for Fade-in Effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Accessibility Improvements */
+:focus {
+    outline: 3px solid #ff69b4;
+    outline-offset: 2px;
+}
+
+/* Improved Hover Interaction */
+button, a, td:hover {
+    transition: background-color 0.3s, transform 0.3s;
 }
